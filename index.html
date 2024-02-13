@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>test</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+</head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Neucha&family=Press+Start+2P&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+<body>
+    
+<div class="wrapper">
+
+<style>
+    span.quest {font-weight: bold;}
+    label {margin-left: 15px;}
+    .nav {font-size: 17px;}
+</style>
+<div style="border: 2px solid rgb(145, 192, 155); padding: 10px; overflow:auto;">
+    <div style="display:flex; justify-content: space-between;">
+    </div>
+<script>
+
+
+var title  = 'Тест по теме "Селекция"';
+
+var questions=[
+{
+	text: "Организмы, в геном которых встроены гены других видов, называют...",
+	answers: ["Гибридами",
+		  "Трансгенными",
+		  "Дискретными"],
+	correctAnswer: 1 
+},
+
+{
+	text: "Мул - типичный пример:",
+	answers: ["Гетерозиса",
+		  "Полиплодии",
+		  "Мутагенеза"],
+	correctAnswer: 0
+},
+
+{
+	text: "Клонирование - это...",
+	answers: ["Скрещивание форм, отличающихся друг от друга по двум парам альтернативных признаков.",
+		  "Появление естественным путем или получение нескольких генетически идентичных организмов путем бесполого размножения или партеногенеза.",
+		  "Ненаследственное изменение фенотипа, возникающее под влиянием факторов внешней среды в пределах нормы реакции генотипа."],
+	correctAnswer: 1
+},
+
+{
+	text: "Кому из ученых принадлежит следующий закон: При скрещивании двух гетерозиготных потомков первого поколения между собой во втором поколении наблюдается расщепление в определенном числовом соотношении... ",
+	answers: ["Д.И. Менделеев",
+		  "Х.А. Кребс",
+		  "Г.И. Мендель"],
+	correctAnswer: 2 
+},
+
+{
+	text: "Снижение эффекта гетерозиса в последующих поколениях обусловлено...",
+	answers: ["Проявлением доминантных мутаций",
+		  "Увеличением числа гетерозиготных особей",
+		  "Уменьшением числа гомозиготных особей",
+          "Проявлением рецессивных мутаций"
+        ],
+	correctAnswer: 3
+},
+
+];
+
+
+
+var yourAns = new Array;
+var score = 0;
+
+function Engine(question, answer) {yourAns[question]=answer;}
+
+function Score(){
+   var answerText = "Результаты:\n";
+   for(var i = 0; i < yourAns.length; ++i){
+	var num = i+1;
+	answerText=answerText+"\n    Вопрос №"+ num +"";
+	if(yourAns[i]!=questions[i].correctAnswer){
+	    answerText=answerText+"\n    Правильный ответ: " +
+		questions[i].answers[questions[i].correctAnswer] + "\n";
+	  }
+        else{
+	    answerText=answerText+": Верно! \n";
+	    ++score;
+	    }
+       }
+
+   answerText=answerText+"\nВсего правильных ответов: "+score+"\n";
+
+   alert(answerText);
+   yourAns = [];
+   score = 0;
+   clearForm("quiz");
+}
+function clearForm(name) {
+   var f = document.forms[name];
+   for(var i = 0; i < f.elements.length; ++i) {
+	if(f.elements[i].checked)
+		f.elements[i].checked = false;
+}
+}
+</script>
+<h2><script>document.write(title)</script></h2>
+<h3><script>document.write(subtitle)</script></h3>
+
+    <form name="quiz">
+    <ol>
+        <script>
+        for(var q=0; q<questions.length; ++q) {
+           var question = questions[q];
+           var idx = 1 + q;
+
+           document.writeln('<li><span class="quest">' + question.text + '</span><br>');
+           for(var i in question.answers) {
+            document.writeln('<label><input type=radio name="q' + idx + '" value="' + i +
+            '" onClick="Engine(' + q + ', this.value)"> ' + question.answers[i] + '</label><br>'); 
+        }
+            document.writeln('</li>');
+        }
+        </script>
+    </ol>
+        <br>
+        <input type="button" class="btn" onClick="Score()" value="Проверить результаты">
+    </form>
+    
+</div>
+
+</div> <!--wrapper-->
+
+
+
+<p class="points">Количество баллов равно количеству заданий, решенных верно.</p>
+
+
+
+<p class="title__extra">Задание для улучшения результата <span class="alert">(не выполняется в случае отличного результата за предыдущее):</p></span>
+
+
+
+<div class="extra__task">
+<p>Выполните задания теста:</p>
+<p> <input type="text" id="z_1"> -- наука о методах создания новых и улучшения существующих пород животных, сортов растений и штаммов микроорганизмов.</p>
+<p>  <input type="text" id="z_2"> -- биологическое явление, при котором сохраняется жизнь и получается возможность продолжения рода наиболее приспособленных к данным условиям жизни особи.</p>
+<p> <input type="text" id="z_3">-- изменения в наследственном аппарате клетки, возникшие под действием каких-либо внешних или внутренних факторов.</p>
+
+<button class="extra__task-btn" onClick="proverit();">Проверить</button>
+<div id="rezultat"></div>
+</div>
+
+
+<script> 
+function proverit(){
+pr_otv_zadachi_1 = "Селекция"; 
+pr_otv_zadachi_2 = "Отбор";
+pr_otv_zadachi_3 = "Мутация";
+otv_uch_1 = document.getElementById('z_1').value;
+otv_uch_2 = document.getElementById('z_2').value;
+otv_uch_3 = document.getElementById('z_3').value;
+ball = 0;
+if(otv_uch_1 == pr_otv_zadachi_1){
+ball +=1;
+}
+if(otv_uch_2 == pr_otv_zadachi_2){
+ball +=1;
+}
+if(otv_uch_3 == pr_otv_zadachi_3){
+ball +=1;
+}
+vsego_zadach = 3;
+procent_vip = ball/vsego_zadach * 100;
+document.getElementById('rezultat').innerHTML = "Задания выполнены верно на "+procent_vip+"%.";
+}
+</script>
+
+
+
+
+<!--
+
+
+<p>Организмы, в геном которых встроены гены других видов, называют...</p>
+<p> <input type="radio" id="z_4">Гибридами</p>
+<p> <input type="radio" id="z_4">Трансгенными</p>
+<p> <input type="radio" id="z_4">Дискретными</p>
+
+<p>Мул - типичный пример:</p>
+<p> <input type="radio" id="z_5">Гетерозиса</p>
+<p> <input type="radio" id="z_5">Мутагенеза</p>
+<p> <input type="radio" id="z_5">Полиплодии</p>
+
+<p>Клонирование - это...</p>
+<p> <input type="radio" id="z_6" value="Скрещивание форм, отличающихся друг от друга по двум парам альтернативных признаков.">Скрещивание форм, отличающихся друг от друга по двум парам альтернативных признаков.</p>
+<p> <input type="radio" id="z_6" value="Появление естественным путем или получение нескольких генетически идентичных организмов путем бесполого размножения или партеногенеза.">Появление естественным путем или получение нескольких генетически идентичных организмов путем бесполого размножения или партеногенеза.</p>
+<p> <input type="radio" id="z_6" value="Ненаследственное изменение фенотипа, возникающее под влиянием факторов внешней среды в пределах нормы реакции генотипа.">Ненаследственное изменение фенотипа, возникающее под влиянием факторов внешней среды в пределах нормы реакции генотипа.</p>
+
+<p>Кому из ученых принадлежит следующий закон: При скрещивании двух гетерозиготных потомков первого поколения между собой во втором поколении наблюдается расщепление в определенном числовом соотношении...</p>
+<p> <input type="radio" id="z_7" value="Д.И. Менделеев">Д.И. Менделеев</p>
+<p> <input type="radio" id="z_7" value="Х.А. Кребс">Х.А. Кребс</p>
+<p> <input type="radio" id="z_7" value="Г.И. Мендель">Г.И. Мендель</p>
+
+<button onClick="proverit();">Проверить</button>
+<div id="rezultat"></div>
+
+<script>
+function proverit(){
+pr_otv_zadachi_4 = "Трансгенными"; 
+pr_otv_zadachi_5 = "Гетерозиса";
+pr_otv_zadachi_6 = "Появление естественным путем или получение нескольких генетически идентичных организмов путем бесполого размножения или партеногенеза.";
+pr_otv_zadachi_7 = "Г.И. Мендель";
+otv_uch_4 = document.getElementById('z_4').value;
+otv_uch_5 = document.getElementById('z_5').value;
+otv_uch_6 = document.getElementById('z_6').value;
+otv_uch_7 = document.getElementById('z_7').value;
+ball = 0;
+if(otv_uch_4 == pr_otv_zadachi_4){
+ball +=1;
+}
+if(otv_uch_5 == pr_otv_zadachi_5){
+ball +=1;
+}
+if(otv_uch_6 == pr_otv_zadachi_6){
+ball +=1;
+}
+if(otv_uch_7 == pr_otv_zadachi_7){
+ball +=1;
+}
+vsego_zadach = 4;
+procent_vip = ball/vsego_zadach * 100;
+document.getElementById('rezultat').innerHTML = "Задания выполнены верно на "+procent_vip+"%.";
+}
+</script>
+-->
+
+
