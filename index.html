@@ -154,10 +154,12 @@ function clearForm(name) {
 
 
 <div class="extra__task">
-<p>Выполните задания теста:</p>
+<p>Выполните задания теста <b>(ответ записывайте с БОЛЬШОЙ буквы)</b> :</p>
 <p> <input type="text" id="z_1"> -- наука о методах создания новых и улучшения существующих пород животных, сортов растений и штаммов микроорганизмов.</p>
 <p>  <input type="text" id="z_2"> -- биологическое явление, при котором сохраняется жизнь и получается возможность продолжения рода наиболее приспособленных к данным условиям жизни особи.</p>
-<p> <input type="text" id="z_3">-- изменения в наследственном аппарате клетки, возникшие под действием каких-либо внешних или внутренних факторов.</p>
+<p> <input type="text" id="z_3"> -- изменения в наследственном аппарате клетки, возникшие под действием каких-либо внешних или внутренних факторов.</p>
+<p> <input type="text" id="z_4"> -- один из методов разведения, представляющий собой неродственное скрещивание.</p>
+<p> <input type="text" id="z_5"> -- скрещивание близкородственных форм в пределах одной популяции организмов.</p>
 
 <button class="extra__task-btn" onClick="proverit();">Проверить</button>
 <div id="rezultat"></div>
@@ -169,9 +171,13 @@ function proverit(){
 pr_otv_zadachi_1 = "Селекция"; 
 pr_otv_zadachi_2 = "Отбор";
 pr_otv_zadachi_3 = "Мутация";
+pr_otv_zadachi_4 = "Аутбридинг";
+pr_otv_zadachi_5 = "Инбридинг";
 otv_uch_1 = document.getElementById('z_1').value;
 otv_uch_2 = document.getElementById('z_2').value;
 otv_uch_3 = document.getElementById('z_3').value;
+otv_uch_4 = document.getElementById('z_4').value;
+otv_uch_5 = document.getElementById('z_5').value;
 ball = 0;
 if(otv_uch_1 == pr_otv_zadachi_1){
 ball +=1;
@@ -182,7 +188,13 @@ ball +=1;
 if(otv_uch_3 == pr_otv_zadachi_3){
 ball +=1;
 }
-vsego_zadach = 3;
+if(otv_uch_4 == pr_otv_zadachi_4){
+ball +=1;
+}
+if(otv_uch_5 == pr_otv_zadachi_5){
+ball +=1;
+}
+vsego_zadach = 5;
 procent_vip = ball/vsego_zadach * 100;
 document.getElementById('rezultat').innerHTML = "Задания выполнены верно на "+procent_vip+"%.";
 }
